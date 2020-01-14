@@ -7,6 +7,15 @@ const carros = [
   {
     id: 55,
     made: 'Subaru'
+  },
+  {
+    id: 56,
+    made: 'Chevy'
+  },
+  {
+    id: 57,
+    made: 'Toyota',
+    model: 'Corolla'
   }
 ];
 
@@ -77,6 +86,25 @@ app.delete('/borrar/:idCarro', (req, res) => {
   delete carros[indexToUpdate];
   res.status(204);
   res.send();
+});
+
+function buscador(arregloABuscar, parametrosABuscar) {
+  return arregloABuscar.filter(carro => {
+    return Object
+      .keys(parametrosABuscar)
+      .map(key => !!carro[key])
+      .includes(true);
+  });
+}
+
+app.get('/buscar', (req, res) => {
+  const { query: params } = req;
+  console.log(params);
+  const resultadoDeBusqueda = buscador(carros, params);
+  res.send({
+    resultCount: resultadoDeBusqueda.length,
+    results: resultadoDeBusqueda
+  });
 });
 
 app.listen(8080, () => console.log('El servidor esta vivo'));
