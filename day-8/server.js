@@ -27,19 +27,20 @@ app.post('/objetos', (req, res) => {
       });
 });
 
-app.get('/objetos', async (req, res) => {
-  try {
-    const results = await database
+app.get('/objetos', (req, res) => {
+
+  database
     .collection('inserts')
     .find()
-    .toArray();
-
-    res.send({
-      results
+    .toArray()
+    .then(result => {
+      res.send({
+        resultados: result
+      });
+    })
+    .catch(() => {
+      res.status(404).send({ message: 'Sin datos' })
     });
-  } catch (err) {
-    res.status(404).send({ message: 'Sin datos' });
-  }
 });
 
 app.listen(PORT, () => console.log('App is up and running!'));
