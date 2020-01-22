@@ -1,4 +1,6 @@
-const carsRouter = require('express').Router();
+const express = require('express');
+const carsRouter = express.Router();
+
 const {
   handleCarCreation,
   handleCarReading,

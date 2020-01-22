@@ -9,6 +9,7 @@ function handleCarCreation(req, res) {
       .send({
         error: { message: 'No se mandó un objeto válido.' }
       });
+    return;
   }
   const { brand, year, plates, model } = carToCreate;
   const car = new Car({
