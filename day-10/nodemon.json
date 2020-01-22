@@ -1,0 +1,7 @@
+{
+  "env": {
+    "NODE_ENV": "development",
+    "PORT": 8080,
+    "DB_URL": "mongodb+srv://admin:IF3Tn81Z23rOfXey@firstcluster-chz9d.mongodb.net/tests?authSource=admin&replicaSet=FirstCluster-shard-0&readPreference=primary"
+  }
+}
