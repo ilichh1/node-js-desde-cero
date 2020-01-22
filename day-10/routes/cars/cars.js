@@ -74,6 +74,11 @@ function handleCarUpdating(req, res) {
         res.status(404).send({message: 'No hay un carro con ese ID.'});
         return;
       }
+      if (dbResult.nModified === 0) {
+        res.send({
+          message: 'No se realizo ningun cambio en la base de datos',
+        });
+      }
       console.log(dbResult);
       // Solo el resultado de la DB, sin el objeto modificado
       // res.status(200).json(result);
@@ -95,6 +100,16 @@ function handleCarUpdating(req, res) {
 
 function handleCarDeletion(req, res) {
   const { id = null } = req.params;
+  if (id == 'nulo') {
+    res
+      .status(422)
+      .send({
+        error: {
+          message: 'El id no puede ser nulo.',
+        }
+      });
+    return;
+  }
   if (!id) {
     res
       .status(422)
