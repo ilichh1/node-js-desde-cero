@@ -1,7 +1,10 @@
 const express = require('express');
 
 const app = express();
-const PORT = 80;
+let PORT = process.env.PORT;
+if (PORT == null || PORT == "") {
+  PORT = 8000;
+}
 
 app.all('/', (req, res) => res.send({ message: 'Everything is ok!' }));
 

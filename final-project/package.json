@@ -1,9 +1,13 @@
 {
   "name": "final-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "My first heroku-deployed app!",
   "main": "index.js",
+  "engines": {
+    "node": "13.x"
+  },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ilichh1",
