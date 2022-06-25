@@ -5,7 +5,7 @@
   "main": "clima.js",
   "dependencies": {
     "express": "^4.17.1", // 4.17.1
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "uuid": "^3.3.3"
   },
   "devDependencies": {},
